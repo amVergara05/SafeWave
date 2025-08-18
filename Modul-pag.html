@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safewave - Digital Security</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f7fa;
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem 0;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            color: var(--light-color);
+            font-weight: 300;
+        }
+        
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .module-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .module-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .module-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--secondary-color);
+        }
+        
+        .module-content {
+            padding: 2rem;
+        }
+        
+        .module-number {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .module-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .module-description {
+            color: #7f8c8d;
+            margin-bottom: 1.5rem;
+        }
+        
+        .module-link {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: var(--secondary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        .module-link:hover {
+            background: var(--primary-color);
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding: 2rem 0;
+            color: #7f8c8d;
+        }
+        
+        @media (max-width: 768px) {
+            .modules-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Safewave</h1>
+            <h2>DIGITAL SECURITY - CORPORATE / BUSINESS</h2>
+        </header>
+        
+        <div class="modules-grid">
+            <!-- Módulo 1 -->
+            <div class="module-card" onclick="location.href='modulo1.html'">
+                <div class="module-content">
+                    <div class="module-number">MODULE 1</div>
+                    <h3 class="module-title">Seguridad Digital Personal</h3>
+                    <p class="module-description">Protege tu información personal y dispositivos en el entorno digital.</p>
+                    <a href="modulo1.html" class="module-link">Acceder al módulo</a>
+                </div>
+            </div>
+            
+            <!-- Módulo 2 -->
+            <div class="module-card" onclick="location.href='modulo2.html'">
+                <div class="module-content">
+                    <div class="module-number">MODULE 2</div>
+                    <h3 class="module-title">Seguridad en Redes Corporativas</h3>
+                    <p class="module-description">Protección de infraestructuras de red empresariales.</p>
+                    <a href="modulo2.html" class="module-link">Acceder al módulo</a>
+                </div>
+            </div>
+            
+            <!-- Módulo 3 -->
+            <div class="module-card" onclick="location.href='modulo3.html'">
+                <div class="module-content">
+                    <div class="module-number">MODULE 3</div>
+                    <h3 class="module-title">Protección de Datos</h3>
+                    <p class="module-description">Gestión segura de información sensible de la empresa.</p>
+                    <a href="modulo3.html" class="module-link">Acceder al módulo</a>
+                </div>
+            </div>
+            
+            <!-- Módulo 4 -->
+            <div class="module-card" onclick="location.href='modulo4.html'">
+                <div class="module-content">
+                    <div class="module-number">MODULE 4</div>
+                    <h3 class="module-title">Ciberseguridad para Equipos</h3>
+                    <p class="module-description">Protección de endpoints y dispositivos móviles corporativos.</p>
+                    <a href="modulo4.html" class="module-link">Acceder al módulo</a>
+                </div>
+            </div>
+            
+            <!-- Módulo 5 -->
+            <div class="module-card" onclick="location.href='modulo5.html'">
+                <div class="module-content">
+                    <div class="module-number">MODULE 5</div>
+                    <h3 class="module-title">Concienciación en Seguridad</h3>
+                    <p class="module-description">Formación para empleados en buenas prácticas de seguridad.</p>
+                    <a href="modulo5.html" class="module-link">Acceder al módulo</a>
+                </div>
+            </div>
+            
+            <!-- Módulo 6 -->
+            <div class="module-card" onclick="location.href='modulo6.html'">
+                <div class="module-content">
+                    <div class="module-number">MODULE 6</div>
+                    <h3 class="module-title">Continuidad del Negocio</h3>
+                    <p class="module-description">Planificación para incidentes de seguridad y recuperación.</p>
+                    <a href="modulo6.html" class="module-link">Acceder al módulo</a>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>&copy; 2023 Safewave - Digital Security. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+</body>
+</html>
