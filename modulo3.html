@@ -3,138 +3,518 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Módulo 3 - Privacidad | Safewave</title>
-    <link rel="stylesheet" href="estilo.css">
+    <title>Safewave - Módulo 3: Privacidad en la Navegación</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            /* Paleta de colores para seguridad digital */
+            --primary: #1a5fb4;      /* Azul principal */
+            --secondary: #33d6a6;    /* Verde azulado */
+            --accent: #ffbe33;       /* Amarillo para acentos */
+            --dark: #1c1c1c;         /* Texto oscuro */
+            --light: #f8f9fa;        /* Fondo claro */
+            --gray: #e0e0e0;         /* Bordes y elementos secundarios */
+            --danger: #e01b5d;       /* Rojo para advertencias */
+            --success: #26a269;      /* Verde para éxitos */
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: var(--dark);
+            line-height: 1.6;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, #0d4a9c 100%);
+            color: white;
+            padding: 25px 20px;
+            text-align: center;
+            border-bottom: 5px solid var(--secondary);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+        
+        .logo i {
+            font-size: 2.5rem;
+            margin-right: 15px;
+            color: var(--secondary);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        h2 {
+            font-size: 1.3rem;
+            font-weight: 400;
+            opacity: 0.9;
+        }
+        
+        .topic {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 25px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            border-left: 5px solid var(--primary);
+        }
+        
+        h3 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--gray);
+        }
+        
+        .subtopic {
+            margin: 30px 0;
+            padding: 20px;
+            background-color: var(--light);
+            border-radius: 10px;
+            position: relative;
+        }
+        
+        h4 {
+            color: var(--primary);
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        h4 i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+        
+        p, li {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+        
+        strong {
+            color: var(--primary);
+        }
+        
+        ul, ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        
+        li {
+            margin-bottom: 10px;
+        }
+        
+        .image-container {
+            text-align: center;
+            margin: 25px 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        
+        .image-container img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .image-caption {
+            background: rgba(26, 95, 180, 0.85);
+            color: white;
+            padding: 10px;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+        
+        .example {
+            background-color: #e8f4fc;
+            border-left: 4px solid var(--secondary);
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .activity {
+            background-color: #f0f9ff;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 30px;
+            border: 2px dashed var(--secondary);
+        }
+        
+        .activity h4 {
+            color: var(--success);
+        }
+        
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin: 40px 0 20px;
+        }
+        
+        .nav-button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        
+        .nav-button:hover {
+            background-color: #0d4a9c;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-button:disabled {
+            background-color: var(--gray);
+            color: #a0a0a0;
+            cursor: not-allowed;
+        }
+        
+        .nav-button i {
+            margin-left: 8px;
+        }
+        
+        .info-box {
+            background-color: #e8f4fc;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .info-box i {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .warning-box {
+            background-color: #ffecec;
+            border-left: 4px solid var(--danger);
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .tip-box {
+            background-color: #e6f7ee;
+            border-left: 4px solid var(--success);
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.1rem;
+            }
+            
+            h3 {
+                font-size: 1.5rem;
+            }
+            
+            .topic {
+                padding: 15px;
+            }
+            
+            .nav-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-button {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>SAFEWAVE</h1>
-    <h2>DIGITAL SECURITY - PERSONAL</h2>
-    
-    <div class="topic-container">
-        <div class="topic-header">
-            <h3>MÓDULO 3 - Privacidad en la Navegación y Uso de Dispositivos</h3>
+    <header>
+        <div class="logo">
+            <i class="fas fa-shield-alt"></i>
+            <h1>Safewave</h1>
         </div>
-        
-        <div class="topic-content">
-            <div class="highlight-box">
-                <p><strong>Objetivo:</strong> Utilizar navegadores y herramientas que respeten la privacidad del usuario, configurar adecuadamente los permisos de aplicaciones y mantener los dispositivos protegidos y actualizados.</p>
+        <h2>DIGITAL SECURITY - CORPORATE / BUSINESS</h2>
+    </header>
+    
+    <div class="container">
+        <div class="topic">
+            <h3><i class="fas fa-user-secret"></i> Privacidad en la Navegación y Uso de Dispositivos</h3>
+            <p><strong>Objetivo:</strong> Utilizar navegadores y herramientas que respeten la privacidad del usuario, configurar adecuadamente los permisos de aplicaciones y mantener los dispositivos protegidos y actualizados.</p>
+            
+            <div class="image-container">
+                <img src="https://images.unsplash.com/photo-1560732488-6b0df2402544?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Privacidad en la navegación web">
+                <div class="image-caption">Protege tu privacidad mientras navegas por internet</div>
             </div>
             
             <div class="subtopic">
-                <h4>Navegadores centrados en la privacidad</h4>
+                <h4><i class="fas fa-globe"></i> Navegadores centrados en la privacidad</h4>
                 <p>No todos los navegadores tratan tus datos de la misma manera. Algunos recopilan información sobre tus hábitos de navegación para vender publicidad dirigida, mientras que otros priorizan la protección de tu privacidad.</p>
-                <p><strong>Opciones recomendadas:</strong></p>
-                <ul>
-                    <li><strong>Firefox con configuraciones de privacidad:</strong> Bloquea rastreadores por defecto y permite ajustes avanzados para mayor seguridad.</li>
-                    <li><strong>Brave:</strong> Bloquea anuncios y rastreadores de forma predeterminada, además de incluir navegación con Tor en modo privado.</li>
-                    <li><strong>Tor Browser:</strong> Enruta tu conexión a través de múltiples nodos para dificultar el rastreo de tu actividad.</li>
-                </ul>
-                <p><strong>¿Por qué evitar navegadores como Chrome o Edge?</strong></p>
-                <p>Estos navegadores, aunque populares, están vinculados a empresas que monetizan los datos de los usuarios (Google y Microsoft). Si los usas, revisa siempre los ajustes de privacidad para desactivar el seguimiento.</p>
+                
+                <div class="info-box">
+                    <i class="fas fa-lightbulb"></i>
+                    <div>
+                        <p><strong>Opciones recomendadas:</strong></p>
+                        <ul>
+                            <li><strong>Firefox con configuraciones de privacidad:</strong> Bloquea rastreadores por defecto y permite ajustes avanzados para mayor seguridad.</li>
+                            <li><strong>Brave:</strong> Bloquea anuncios y rastreadores de forma predeterminada, además de incluir navegación con Tor en modo privado.</li>
+                            <li><strong>Tor Browser:</strong> Enruta tu conexión a través de múltiples nodos para dificultar el rastreo de tu actividad.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="warning-box">
+                    <p><strong>¿Por qué evitar navegadores como Chrome o Edge?</strong></p>
+                    <p>Estos navegadores, aunque populares, están vinculados a empresas que monetizan los datos de los usuarios (Google y Microsoft). Si los usas, revisa siempre los ajustes de privacidad para desactivar el seguimiento.</p>
+                </div>
             </div>
             
             <div class="subtopic">
-                <h4>Uso de modos de navegación privada/incógnito (y sus limitaciones)</h4>
+                <h4><i class="fas fa-incognito"></i> Uso de modos de navegación privada/incógnito (y sus limitaciones)</h4>
                 <p>El modo incógnito o privado no hace invisible tu navegación, solo evita que el navegador guarde historial, cookies o contraseñas en tu dispositivo.</p>
-                <p><strong>Lo que NO hace el modo privado:</strong></p>
-                <ul>
-                    <li>Ocultar tu actividad a tu proveedor de internet (ISP).</li>
-                    <li>Evitar que las páginas web que visitas rastreen tu IP.</li>
-                    <li>Protegerte de malware o phishing.</li>
-                </ul>
-                <p><strong>¿Cuándo usarlo?</strong></p>
-                <ul>
-                    <li>En dispositivos compartidos (como una computadora pública).</li>
-                    <li>Para evitar que se guarden credenciales o búsquedas en tu equipo personal.</li>
-                </ul>
-                <p>Si necesitas mayor privacidad, combínalo con una VPN o el navegador Tor.</p>
+                
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1586769852836-bc069f74e9e6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Modo de navegación incógnito">
+                    <div class="image-caption">El modo incógnito tiene limitaciones importantes que debes conocer</div>
+                </div>
+                
+                <div class="warning-box">
+                    <p><strong>Lo que NO hace el modo privado:</strong></p>
+                    <ul>
+                        <li>Ocultar tu actividad a tu proveedor de internet (ISP).</li>
+                        <li>Evitar que las páginas web que visitas rastreen tu IP.</li>
+                        <li>Protegerte de malware o phishing.</li>
+                    </ul>
+                </div>
+                
+                <div class="tip-box">
+                    <p><strong>¿Cuándo usarlo?</strong></p>
+                    <ul>
+                        <li>En dispositivos compartidos (como una computadora pública).</li>
+                        <li>Para evitar que se guarden credenciales o búsquedas en tu equipo personal.</li>
+                    </ul>
+                    <p>Si necesitas mayor privacidad, combínalo con una VPN o el navegador Tor.</p>
+                </div>
             </div>
             
             <div class="subtopic">
-                <h4>Configuración de permisos de aplicaciones en smartphones y tablets</h4>
+                <h4><i class="fas fa-mobile-alt"></i> Configuración de permisos de aplicaciones en smartphones y tablets</h4>
                 <p>Muchas aplicaciones piden acceso a funciones como la cámara, el micrófono o la ubicación sin necesidad real. Esto puede ser un riesgo para tu privacidad.</p>
-                <p><strong>Pasos para revisar permisos (ejemplo en Android e iOS):</strong></p>
-                <ol>
-                    <li>Android: Ajustes → Aplicaciones → Permisos.</li>
-                    <li>iOS: Ajustes → Privacidad → Seleccionar categoría (ej. Cámara).</li>
-                </ol>
-                <p><strong>Permisos críticos que debes controlar:</strong></p>
-                <ul>
-                    <li><strong>Ubicación:</strong> Solo para aplicaciones de mapas o entregas.</li>
-                    <li><strong>Micrófono y cámara:</strong> Revocar acceso en aplicaciones como redes sociales si no las usas.</li>
-                    <li><strong>Contactos y archivos:</strong> Evita dar acceso a juegos o aplicaciones poco confiables.</li>
-                </ul>
-                <p><strong>Consejo:</strong> Revisa periódicamente qué aplicaciones tienen permisos y desactiva las que no uses.</p>
+                
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1601784551446-66c9e1a9e30b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Configuración de permisos en dispositivos móviles">
+                    <div class="image-caption">Revisa regularmente los permisos de tus aplicaciones</div>
+                </div>
+                
+                <div class="info-box">
+                    <i class="fas fa-list-ol"></i>
+                    <div>
+                        <p><strong>Pasos para revisar permisos (ejemplo en Android e iOS):</strong></p>
+                        <ol>
+                            <li>Android: Ajustes → Aplicaciones → Permisos.</li>
+                            <li>iOS: Ajustes → Privacidad → Seleccionar categoría (ej. Cámara).</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="tip-box">
+                    <p><strong>Permisos críticos que debes controlar:</strong></p>
+                    <ul>
+                        <li><strong>Ubicación:</strong> Solo para aplicaciones de mapas o entregas.</li>
+                        <li><strong>Micrófono y cámara:</strong> Revocar acceso en aplicaciones como redes sociales si no las usas.</li>
+                        <li><strong>Contactos y archivos:</strong> Evita dar acceso a juegos o aplicaciones poco confiables.</li>
+                    </ul>
+                    <p><strong>Consejo:</strong> Revisa periódicamente qué aplicaciones tienen permisos y desactiva las que no uses.</p>
+                </div>
             </div>
             
             <div class="subtopic">
-                <h4>Importancia de mantener el software y el sistema operativo actualizados</h4>
+                <h4><i class="fas fa-sync-alt"></i> Importancia de mantener el software y el sistema operativo actualizados</h4>
                 <p>Las actualizaciones no solo traen nuevas funciones, sino que parchean vulnerabilidades que podrían ser explotadas por hackers.</p>
-                <p><strong>Ejemplos de riesgos por no actualizar:</strong></p>
-                <ul>
-                    <li><strong>Ataques a sistemas antiguos:</strong> El ransomware WannaCry afectó a equipos con Windows sin actualizar.</li>
-                    <li><strong>Fallos en aplicaciones desactualizadas:</strong> Vulnerabilidades en WhatsApp o Telegram han permitido espionaje en el pasado.</li>
-                </ul>
-                <p><strong>¿Qué hacer?</strong></p>
-                <ul>
-                    <li>Activa las actualizaciones automáticas en tu sistema operativo.</li>
-                    <li>Actualiza manualmente tus aplicaciones cada cierto tiempo.</li>
-                    <li>No ignores las notificaciones de actualización, especialmente en dispositivos móviles.</li>
-                </ul>
+                
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1563207153-f403bf289096?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Actualizaciones de software importantes">
+                    <div class="image-caption">Mantener tu software actualizado es crucial para la seguridad</div>
+                </div>
+                
+                <div class="warning-box">
+                    <p><strong>Ejemplos de riesgos por no actualizar:</strong></p>
+                    <ul>
+                        <li><strong>Ataques a sistemas antiguos:</strong> El ransomware WannaCry afectó a equipos con Windows sin actualizar.</li>
+                        <li><strong>Fallos en aplicaciones desactualizadas:</strong> Vulnerabilidades en WhatsApp o Telegram han permitido espionaje en el pasado.</li>
+                    </ul>
+                </div>
+                
+                <div class="tip-box">
+                    <p><strong>¿Qué hacer?</strong></p>
+                    <ul>
+                        <li>Activa las actualizaciones automáticas en tu sistema operativo.</li>
+                        <li>Actualiza manualmente tus aplicaciones cada cierto tiempo.</li>
+                        <li>No ignores las notificaciones de actualización, especialmente en dispositivos móviles.</li>
+                    </ul>
+                </div>
             </div>
             
             <div class="subtopic">
-                <h4>Uso de VPNs (Redes Privadas Virtuales) para proteger la conexión</h4>
+                <h4><i class="fas fa-lock"></i> Uso de VPNs (Redes Privadas Virtuales) para proteger la conexión</h4>
                 <p>Una VPN cifra tu conexión a internet, ocultando tu dirección IP y evitando que terceros (como tu ISP o redes WiFi públicas) vean tu actividad.</p>
-                <p><strong>Casos en los que es útil una VPN:</strong></p>
-                <ul>
-                    <li>Al conectarte a WiFi públicas (cafeterías, aeropuertos).</li>
-                    <li>Para acceder a contenido con restricciones geográficas.</li>
-                    <li>Si quieres evitar que tu proveedor de internet registre tu historial.</li>
-                </ul>
-                <p><strong>Opciones recomendadas:</strong></p>
-                <ul>
-                    <li>VPN gratuitas (con precaución): ProtonVPN (limitado en versión free).</li>
-                    <li>VPN de pago más confiables: NordVPN, ExpressVPN, Mulwad.</li>
-                </ul>
-                <p><strong>Precaución:</strong> No todas las VPN son seguras. Evita las que registran tu actividad o tienen políticas de privacidad dudosas.</p>
+                
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Uso de VPN para seguridad">
+                    <div class="image-caption">Las VPN cifran tu conexión para mayor privacidad</div>
+                </div>
+                
+                <div class="info-box">
+                    <i class="fas fa-check-circle"></i>
+                    <div>
+                        <p><strong>Casos en los que es útil una VPN:</strong></p>
+                        <ul>
+                            <li>Al conectarte a WiFi públicas (cafeterías, aeropuertos).</li>
+                            <li>Para acceder a contenido con restricciones geográficas.</li>
+                            <li>Si quieres evitar que tu proveedor de internet registre tu historial.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="tip-box">
+                    <p><strong>Opciones recomendadas:</strong></p>
+                    <ul>
+                        <li>VPN gratuitas (con precaución): ProtonVPN (limitado en versión free).</li>
+                        <li>VPN de pago más confiables: NordVPN, ExpressVPN, Mulwad.</li>
+                    </ul>
+                </div>
+                
+                <div class="warning-box">
+                    <p><strong>Precaución:</strong> No todas las VPN son seguras. Evita las que registran tu actividad o tienen políticas de privacidad dudosas.</p>
+                </div>
             </div>
             
             <div class="subtopic">
-                <h4>Cifrado de dispositivos y copias de seguridad</h4>
+                <h4><i class="fas fa-database"></i> Cifrado de dispositivos y copias de seguridad</h4>
                 <p><strong>Cifrado:</strong> Convierte tus datos en información ilegible sin una clave, protegiéndolos en caso de robo o pérdida del dispositivo.</p>
-                <ul>
-                    <li>Android/iOS: Ya incluyen cifrado automático al usar un PIN o huella.</li>
-                    <li>Windows/macOS: Activa BitLocker (Windows) o FileVault (macOS).</li>
-                </ul>
-                <p><strong>Copias de seguridad (backups):</strong></p>
-                <ul>
-                    <li>En la nube: iCloud, Google Drive o servicios cifrados como Tresorit.</li>
-                    <li>En físico: Discos duros externos, pero también deben cifrarse.</li>
-                </ul>
-                <p><strong>¿Por qué son importantes?</strong></p>
-                <ul>
-                    <li>Si pierdes tu teléfono o te roban la laptop, tus archivos estarán protegidos.</li>
-                    <li>En caso de fallo del dispositivo, podrás recuperar tu información.</li>
-                </ul>
+                
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1590402494610-2c7a0d599afd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Cifrado y copias de seguridad">
+                    <div class="image-caption">El cifrado y las copias de seguridad protegen tus datos</div>
+                </div>
+                
+                <div class="info-box">
+                    <i class="fas fa-key"></i>
+                    <div>
+                        <ul>
+                            <li>Android/iOS: Ya incluyen cifrado automático al usar un PIN o huella.</li>
+                            <li>Windows/macOS: Activa BitLocker (Windows) o FileVault (macOS).</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="tip-box">
+                    <p><strong>Copias de seguridad (backups):</strong></p>
+                    <ul>
+                        <li>En la nube: iCloud, Google Drive o servicios cifrados como Tresorit.</li>
+                        <li>En físico: Discos duros externos, pero también deben cifrarse.</li>
+                    </ul>
+                </div>
+                
+                <div class="info-box">
+                    <i class="fas fa-question-circle"></i>
+                    <div>
+                        <p><strong>¿Por qué son importantes?</strong></p>
+                        <ul>
+                            <li>Si pierdes tu teléfono o te roban la laptop, tus archivos estarán protegidos.</li>
+                            <li>En caso de fallo del dispositivo, podrás recuperar tu información.</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
             
-            <div class="activity-box">
-                <h4>Actividades Sugeridas:</h4>
+            <div class="activity">
+                <h4><i class="fas fa-tasks"></i> Actividades Sugeridas:</h4>
                 <ul>
                     <li>Revisión de Dispositivo: Cada participante revisa los permisos de 3 aplicaciones en su teléfono y ajusta lo que considere necesario.</li>
                     <li>Mini-juego: Configurador de Privacidad Interactivo de la web.</li>
                 </ul>
             </div>
         </div>
+        
+        <div class="nav-buttons">
+            <a href="modulo2.html" class="nav-button">
+                <i class="fas fa-arrow-left"></i> Tema Anterior
+            </a>
+            <a href="modulo4.html" class="nav-button">
+                Siguiente Módulo <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
     </div>
     
-    <div class="nav-buttons">
-        <a href="modulo2.html" class="nav-button">Tema Anterior</a>
-        <a href="index.html" class="return-button">← Volver a Módulos</a>
-        <a href="modulo4.html" class="nav-button">Siguiente Tema</a>
-    </div>
-    
-    <script src="../../js/temas.js"></script>
+    <script>
+        // Script para mejorar la interactividad
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animación suave al hacer clic en los enlaces de navegación
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+            
+            // Efecto de realce en las tarjetas al pasar el mouse
+            const subtopics = document.querySelectorAll('.subtopic');
+            subtopics.forEach(subtopic => {
+                subtopic.addEventListener('mouseenter', () => {
+                    subtopic.style.transform = 'translateY(-5px)';
+                    subtopic.style.transition = 'transform 0.3s ease';
+                });
+                
+                subtopic.addEventListener('mouseleave', () => {
+                    subtopic.style.transform = 'translateY(0)';
+                });
+            });
+        });
+    </script>
 </body>
 </html>
