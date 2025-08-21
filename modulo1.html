@@ -5,254 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Safewave - Módulo 1</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            /* Paleta de colores para seguridad digital */
-            --primary: #1a5fb4;      /* Azul principal */
-            --secondary: #33d6a6;    /* Verde azulado */
-            --accent: #ffbe33;       /* Amarillo para acentos */
-            --dark: #1c1c1c;         /* Texto oscuro */
-            --light: #f8f9fa;        /* Fondo claro */
-            --gray: #e0e0e0;         /* Bordes y elementos secundarios */
-            --danger: #e01b5d;       /* Rojo para advertencias */
-            --success: #26a269;      /* Verde para éxitos */
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: #f5f7fa;
-            color: var(--dark);
-            line-height: 1.6;
-            padding: 0;
-            margin: 0;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        header {
-            background: linear-gradient(135deg, var(--primary) 0%, #0d4a9c 100%);
-            color: white;
-            padding: 25px 20px;
-            text-align: center;
-            border-bottom: 5px solid var(--secondary);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 15px;
-        }
-        
-        .logo i {
-            font-size: 2.5rem;
-            margin-right: 15px;
-            color: var(--secondary);
-        }
-        
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-        
-        h2 {
-            font-size: 1.3rem;
-            font-weight: 400;
-            opacity: 0.9;
-        }
-        
-        .topic {
-            background: white;
-            border-radius: 12px;
-            padding: 25px;
-            margin: 25px 0;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            border-left: 5px solid var(--primary);
-        }
-        
-        h3 {
-            color: var(--primary);
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--gray);
-        }
-        
-        .subtopic {
-            margin: 30px 0;
-            padding: 20px;
-            background-color: var(--light);
-            border-radius: 10px;
-            position: relative;
-        }
-        
-        h4 {
-            color: var(--primary);
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-        }
-        
-        h4 i {
-            margin-right: 10px;
-            color: var(--secondary);
-        }
-        
-        p, li {
-            font-size: 1.1rem;
-            margin-bottom: 15px;
-        }
-        
-        strong {
-            color: var(--primary);
-        }
-        
-        ul, ol {
-            padding-left: 25px;
-            margin: 15px 0;
-        }
-        
-        li {
-            margin-bottom: 10px;
-        }
-        
-        .image-container {
-            text-align: center;
-            margin: 25px 0;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            position: relative;
-        }
-        
-        .image-container img {
-            width: 100%;
-            max-height: 400px;
-            object-fit: cover;
-            display: block;
-        }
-        
-        .image-caption {
-            background: rgba(26, 95, 180, 0.85);
-            color: white;
-            padding: 10px;
-            font-size: 0.9rem;
-            text-align: center;
-        }
-        
-        .example {
-            background-color: #e8f4fc;
-            border-left: 4px solid var(--secondary);
-            padding: 15px 20px;
-            margin: 20px 0;
-            border-radius: 0 8px 8px 0;
-        }
-        
-        .activity {
-            background-color: #f0f9ff;
-            border-radius: 10px;
-            padding: 20px;
-            margin-top: 30px;
-            border: 2px dashed var(--secondary);
-        }
-        
-        .activity h4 {
-            color: var(--success);
-        }
-        
-        .nav-buttons {
-            display: flex;
-            justify-content: space-between;
-            margin: 40px 0 20px;
-        }
-        
-        .nav-button {
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-        }
-        
-        .nav-button:hover {
-            background-color: #0d4a9c;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .nav-button:disabled {
-            background-color: var(--gray);
-            color: #a0a0a0;
-            cursor: not-allowed;
-        }
-        
-        .nav-button i {
-            margin-left: 8px;
-        }
-        
-        .info-box {
-            background-color: #e8f4fc;
-            border-radius: 8px;
-            padding: 15px;
-            margin: 15px 0;
-            display: flex;
-            align-items: flex-start;
-        }
-        
-        .info-box i {
-            color: var(--primary);
-            font-size: 1.5rem;
-            margin-right: 15px;
-            flex-shrink: 0;
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
-            }
-            
-            h2 {
-                font-size: 1.1rem;
-            }
-            
-            h3 {
-                font-size: 1.5rem;
-            }
-            
-            .topic {
-                padding: 15px;
-            }
-            
-            .nav-buttons {
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .nav-button {
-                width: 100%;
-                justify-content: center;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
@@ -262,21 +15,21 @@
         </div>
         <h2>DIGITAL SECURITY - CORPORATE / BUSINESS</h2>
     </header>
-    
+   
     <div class="container">
         <div class="topic">
             <h3><i class="fas fa-lock"></i> Fundamentos de la Seguridad Digital Personal</h3>
             <p><strong>Objetivo:</strong> Comprender qué es la seguridad digital personal, su importancia en la vida diaria y los principales riesgos a los que estamos expuestos como usuarios de tecnologías.</p>
-            
+           
             <div class="image-container">
                 <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Concepto de seguridad digital y protección de datos">
                 <div class="image-caption">La seguridad digital protege nuestra información personal en el mundo conectado</div>
             </div>
-            
+           
             <div class="subtopic">
                 <h4><i class="fas fa-info-circle"></i> Definición de seguridad digital personal y su relevancia en el mundo actual</h4>
                 <p>Seguridad digital personal se refiere al conjunto de medidas, herramientas, conocimientos y hábitos que una persona adopta para proteger su información personal, dispositivos electrónicos y datos sensibles al utilizar tecnologías digitales. Esto incluye desde el uso de contraseñas seguras, navegación responsable, hasta el reconocimiento de amenazas como virus o estafas en línea.</p>
-                
+               
                 <div class="info-box">
                     <i class="fas fa-exclamation-triangle"></i>
                     <div>
@@ -286,32 +39,32 @@
                     </div>
                 </div>
             </div>
-            
+           
             <div class="subtopic">
                 <h4><i class="fas fa-chart-line"></i> Impacto de la seguridad digital en la vida cotidiana</h4>
                 <p>La seguridad digital afecta directamente aspectos importantes de nuestra vida diaria. Una mala práctica o una falla puede ocasionar consecuencias reales en distintas áreas:</p>
-                
+               
                 <div class="image-container">
                     <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Impacto de la seguridad digital en la vida diaria">
                     <div class="image-caption">La seguridad digital impacta en múltiples aspectos de nuestra vida</div>
                 </div>
-                
+               
                 <ul>
                     <li><strong>Privacidad:</strong> El uso inseguro de redes sociales, aplicaciones o plataformas puede llevar a la exposición de datos personales como dirección, ubicación, fotos familiares o mensajes privados. Esto pone en riesgo la intimidad del usuario.</li>
                     <li><strong>Finanzas:</strong> Una persona que no cuida su información bancaria o sus contraseñas puede ser víctima de robos, estafas o fraudes financieros. Un clic en un enlace falso puede dar acceso a ciberdelincuentes a las cuentas bancarias.</li>
                     <li><strong>Reputación:</strong> La publicación o difusión no autorizada de fotos, mensajes o datos personales puede perjudicar la imagen de una persona en su entorno académico, profesional o social. Los daños a la reputación pueden ser duraderos, ya que la información en internet puede permanecer activa durante años.</li>
                 </ul>
             </div>
-            
+           
             <div class="subtopic">
                 <h4><i class="fas fa-bug"></i> Identificación de los principales riesgos digitales</h4>
                 <p>Existen múltiples amenazas en el entorno digital que pueden afectar a los usuarios. A continuación, se describen las más comunes:</p>
-                
+               
                 <div class="image-container">
                     <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Principales riesgos y amenazas digitales">
                     <div class="image-caption">Distintos tipos de malware y amenazas digitales</div>
                 </div>
-                
+               
                 <ol>
                     <li><strong>Malware:</strong> Es un software malicioso diseñado para infiltrarse en dispositivos sin el consentimiento del usuario.</li>
                     <li><strong>Virus:</strong> Programas que se replican y dañan archivos o sistemas.</li>
@@ -323,27 +76,27 @@
                     <li><strong>Ciberacoso:</strong> Es el hostigamiento o acoso que se realiza mediante medios digitales. Incluye insultos, amenazas, difamación o publicación de contenido ofensivo.</li>
                 </ol>
             </div>
-            
+           
             <div class="subtopic">
                 <h4><i class="fas fa-shield-alt"></i> Concepto de amenaza, vulnerabilidad y riesgo en el contexto digital</h4>
                 <p>Estos tres términos son fundamentales para comprender cómo se producen los ataques informáticos y cuál es el nivel de exposición que tiene una persona.</p>
-                
+               
                 <div class="image-container">
                     <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Relación entre amenaza, vulnerabilidad y riesgo">
                     <div class="image-caption">La relación entre amenazas, vulnerabilidades y riesgos determina la seguridad</div>
                 </div>
-                
+               
                 <ul>
                     <li><strong>Amenaza:</strong> Es cualquier agente o situación que tiene el potencial de causar daño. Puede tratarse de un hacker, un software malicioso, una estafa o un intento de suplantación.</li>
                     <li><strong>Vulnerabilidad:</strong> Es una debilidad, error o descuido que puede ser aprovechado por una amenaza. Por ejemplo, una contraseña débil, un sistema desactualizado o una mala configuración de privacidad representan vulnerabilidades.</li>
                     <li><strong>Riesgo:</strong> Es la posibilidad de que una amenaza logre explotar una vulnerabilidad y cause un impacto negativo. El nivel de riesgo depende de la probabilidad de que ocurra un ataque y del daño que podría ocasionar.</li>
                 </ul>
-                
+               
                 <div class="example">
                     <p><strong>Ejemplo práctico:</strong> Si una persona utiliza la misma contraseña para todas sus cuentas (vulnerabilidad) y recibe un correo falso (amenaza) solicitando cambiar la contraseña, existe un alto riesgo de que su información sea robada.</p>
                 </div>
             </div>
-            
+           
             <div class="activity">
                 <h4><i class="fas fa-tasks"></i> Actividades Sugeridas:</h4>
                 <ul>
@@ -352,17 +105,13 @@
                 </ul>
             </div>
         </div>
-        
+       
         <div class="nav-buttons">
-            <button class="nav-button" disabled>
-                <i class="fas fa-arrow-left"></i> Anterior
-            </button>
-            <a href="modulo2.html" class="nav-button">
-                Siguiente Módulo <i class="fas fa-arrow-right"></i>
-            </a>
+        <a href="index.html" class="return-button">← Volver a Módulos</a>
+        <a href="modulo2.html" class="nav-button">Siguiente Módulo</a>
         </div>
     </div>
-    
+   
     <script>
         // Script para mejorar la interactividad
         document.addEventListener('DOMContentLoaded', function() {
@@ -375,7 +124,7 @@
                     });
                 });
             });
-            
+           
             // Efecto de realce en las tarjetas al pasar el mouse
             const subtopics = document.querySelectorAll('.subtopic');
             subtopics.forEach(subtopic => {
@@ -383,7 +132,7 @@
                     subtopic.style.transform = 'translateY(-5px)';
                     subtopic.style.transition = 'transform 0.3s ease';
                 });
-                
+               
                 subtopic.addEventListener('mouseleave', () => {
                     subtopic.style.transform = 'translateY(0)';
                 });
